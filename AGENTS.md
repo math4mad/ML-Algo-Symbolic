@@ -55,6 +55,14 @@ python verify_derivations.py
 
 CI workflow: `.github/workflows/verify.yml`
 
+## Tag Naming Convention
+-   semver: `v<MAJOR>.<MINOR>.<PATCH>` (e.g. `v0.1.0`)
+    - **MAJOR** — new notebook category or breaking formula change
+    - **MINOR** — new notebook or substantial derivation added
+    - **PATCH** — bug fixes, formula corrections, display / import fixes
+-   use annotated tags: `git tag -a vX.Y.Z -m "description"`
+-   push tags explicitly: `git push origin vX.Y.Z`
+
 ##  Rules
 -   marimo note 
 -   keep simple when you return token 
