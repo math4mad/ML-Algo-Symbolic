@@ -5,8 +5,16 @@
 
 import marimo
 
-__generated_with = "0.24.0"
+__generated_with = "0.23.15"
 app = marimo.App(width="medium")
+
+
+@app.cell
+def _():
+    import marimo as mo
+
+
+    return (mo,)
 
 
 @app.cell(hide_code=True)
@@ -53,18 +61,19 @@ def _():
     import sympy as sp
 
     x, y, w, b = sp.symbols("x y w b", real=True)
+    z_sym = sp.Symbol("z", real=True)
 
-    z = w * x + b
-    p = 1 / (1 + sp.exp(-z))
+    z_lin = w * x + b
+    p = 1 / (1 + sp.exp(-z_sym))
 
     binary_cross_entropy = -(y * sp.log(p) + (1 - y) * sp.log(1 - p))
 
     (
-        sp.Eq(sp.Symbol("z"), z),
+        sp.Eq(sp.Symbol("z"), z_lin),
         sp.Eq(sp.Symbol("p"), p),
         sp.Eq(sp.Symbol("mathcal{L}"), binary_cross_entropy),
     )
-    return b, binary_cross_entropy, p, sp, w, x, y, z
+    return b, binary_cross_entropy, p, sp, w, x, y, z_lin, z_sym
 
 
 @app.cell(hide_code=True)
@@ -82,11 +91,11 @@ def _(mo):
 
 
 @app.cell
-def _(binary_cross_entropy, sp, z):
-    grad_z = sp.simplify(sp.diff(binary_cross_entropy, z))
+def _(binary_cross_entropy, sp, z_sym):
+    grad_z = sp.simplify(sp.diff(binary_cross_entropy, z_sym))
 
     sp.Eq(sp.Symbol("frac{partial L}{partial z}"), grad_z)
-    return grad_z,
+    return (grad_z,)
 
 
 @app.cell(hide_code=True)
@@ -112,15 +121,15 @@ def _(mo):
 
 
 @app.cell
-def _(b, binary_cross_entropy, sp, w):
-    grad_w = sp.simplify(sp.diff(binary_cross_entropy, w))
-    grad_b = sp.simplify(sp.diff(binary_cross_entropy, b))
-
+def _(b, binary_cross_entropy, sp, w, z_lin, z_sym):
+    bce_sub = binary_cross_entropy.subs(z_sym, z_lin)
+    grad_w = sp.simplify(sp.diff(bce_sub, w))
+    grad_b = sp.simplify(sp.diff(bce_sub, b))
     (
         sp.Eq(sp.Symbol("frac{partial L}{partial w}"), grad_w),
         sp.Eq(sp.Symbol("frac{partial L}{partial b}"), grad_b),
     )
-    return grad_b, grad_w
+    return (grad_b, grad_w)
 
 
 @app.cell(hide_code=True)
@@ -135,18 +144,21 @@ def _(mo):
 
 
 @app.cell
-def _(p, sp, w, x, y):
-    grad_w_form1 = sp.simplify(sp.diff(-(y * sp.log(p) + (1 - y) * sp.log(1 - p)), w))
-    grad_w_form2 = x * (p - y)
+def _(b, p, sp, w, x, y, z_lin, z_sym):
+    p_lin = p.subs(z_sym, z_lin)
+    bce_lin = -(y * sp.log(p_lin) + (1 - y) * sp.log(1 - p_lin))
 
-    grad_b_form1 = sp.simplify(sp.diff(-(y * sp.log(p) + (1 - y) * sp.log(1 - p)), b))
-    grad_b_form2 = p - y
+    grad_w_form1 = sp.simplify(sp.diff(bce_lin, w))
+    grad_w_form2 = x * (p_lin - y)
+
+    grad_b_form1 = sp.simplify(sp.diff(bce_lin, b))
+    grad_b_form2 = p_lin - y
 
     check_w = sp.simplify(grad_w_form1 - grad_w_form2) == 0
     check_b = sp.simplify(grad_b_form1 - grad_b_form2) == 0
 
     f"∂L/∂w equivalent: {check_w}", f"∂L/∂b equivalent: {check_b}"
-    return check_b, check_w, grad_b_form1, grad_b_form2, grad_w_form1, grad_w_form2
+    return
 
 
 @app.cell(hide_code=True)
@@ -212,7 +224,7 @@ def _():
 
     plt.tight_layout()
     fig
-    return (fig,)
+    return
 
 
 if __name__ == "__main__":

@@ -5,8 +5,15 @@
 
 import marimo
 
-__generated_with = "0.24.0"
+__generated_with = "0.23.15"
 app = marimo.App(width="medium")
+
+
+@app.cell
+def _():
+    import morimo as  mo
+
+    return (mo,)
 
 
 @app.cell(hide_code=True)
@@ -58,7 +65,7 @@ def _():
 
     J = data_term + penalty_term
     J[0, 0]
-    return J, X, d, data_term, lam, n, penalty_term, residual, sp, w_vec, y_vec
+    return d, lam, sp
 
 
 @app.cell(hide_code=True)
@@ -93,7 +100,7 @@ def _(d, lam, sp):
     rhs = sp.MatMul(sp.Transpose(sp.MatrixSymbol("X", sp.Symbol("n"), d)), sp.MatrixSymbol("y", sp.Symbol("n"), 1))
 
     sp.Eq(lhs * sp.MatrixSymbol("w", d, 1), rhs, evaluate=False)
-    return I_d, lhs, rhs
+    return
 
 
 @app.cell(hide_code=True)
@@ -123,7 +130,7 @@ def _(d, lam, sp):
     ridge_solution = (X_sym.T * X_sym + lam * I_sym).inv() * X_sym.T * y_sym
 
     sp.Eq(sp.MatrixSymbol("w", d, 1), ridge_solution, evaluate=False)
-    return I_sym, X_sym, ridge_solution, y_sym
+    return
 
 
 @app.cell(hide_code=True)
@@ -156,17 +163,7 @@ def _():
     w_ols = np.linalg.solve(X_data.T @ X_data, X_data.T @ y_data)
 
     w_ridge, w_true, w_ols
-    return (
-        I_mat,
-        X_data,
-        d_data,
-        lambda_val,
-        n_data,
-        w_ols,
-        w_ridge,
-        w_true,
-        y_data,
-    )
+    return
 
 
 @app.cell(hide_code=True)
@@ -208,7 +205,7 @@ def _():
     ax.legend()
     plt.tight_layout()
     fig
-    return (fig,)
+    return
 
 
 if __name__ == "__main__":
