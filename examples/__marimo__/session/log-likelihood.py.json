@@ -1,0 +1,179 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.24.0",
+    "script_metadata_hash": "7e7618f6e6faa33f99b06c870d969e9d"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "bd8ca99c98d893a3995e51d05bb0649b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"gaussian-log-likelihood-symbolic-derivation\">Gaussian Log-Likelihood \u2014 Symbolic Derivation</h1>\n<span class=\"paragraph\">Given i.i.d. observations <marimo-tex class=\"arithmatex\">||(\\{x_1, \\ldots, x_n\\}||)</marimo-tex> from a\n<marimo-tex class=\"arithmatex\">||(N(\\mu, \\sigma^2)||)</marimo-tex> distribution, we derive the log-likelihood\nsymbolically, compute its gradients, solve for the MLE, and\nverify numerically.</span>\n<span class=\"paragraph\"><strong>References</strong></span>\n<ul>\n<li><a href=\"https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/\" rel=\"noopener noreferrer\" target=\"_blank\">Pattern Recognition and Machine Learning</a> \u2014 Ch. 2.3</li>\n<li><a href=\"https://probml.github.io/pml-book/book1.html\" rel=\"noopener noreferrer\" target=\"_blank\">Probabilistic Machine Learning: An Introduction</a> \u2014 Ch. 4</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "06e18276b2dc1e61187a3723a59450b7",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "No module named 'sympy'",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/zz/r9mmphcx6nz_7kqlnx6wzgyw0000gn/T/marimo_17351/__marimo__cell_vblA_.py\"</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"kn\">import</span><span class=\"w\"> </span><span class=\"nn\">sympy</span><span class=\"w\"> </span><span class=\"k\">as</span><span class=\"w\"> </span><span class=\"nn\">sp</span>\n<span class=\"gr\">ModuleNotFoundError</span>: <span class=\"n\">No module named 'sympy'</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "23c9463e25ca1b8dff367b5aa35c4dad",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"1-log-likelihood-for-n-observations\">1.  Log-Likelihood for <marimo-tex class=\"arithmatex\">||(n||)</marimo-tex> Observations</h2>\n<span class=\"paragraph\">Likelihood:</span>\n<marimo-tex class=\"arithmatex\">||[\n\\mathcal{L}(\\mu, \\sigma) = \\prod_{i=1}^{n}\n\\frac{1}{\\sqrt{2\\pi\\sigma^2}}\n\\exp\\!\\left(-\\frac{(x_i - \\mu)^2}{2\\sigma^2}\\right)\n||]</marimo-tex><span class=\"paragraph\">Log-likelihood:</span>\n<span class=\"paragraph\">$$\n\\ell(\\mu, \\sigma) = -\\frac{n}{2}\\log(2\\pi) - n\\log\\sigma</span>\n<ul>\n<li>\\frac{1}{2\\sigma<sup>2}\\sum_{i=1}</sup>{n}(x_i - \\mu)^2\n$$</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "c2cad3943c9d1e91d4567101707798e2",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (ModuleNotFoundError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "cf5d12896ad9d141fd6f3e25a639092d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"2-gradient-wrt-mu-score-equation\">2.  Gradient w.r.t. <marimo-tex class=\"arithmatex\">||(\\mu||)</marimo-tex> \u2014 Score Equation</h2>\n<marimo-tex class=\"arithmatex\">||[\n\\frac{\\partial \\ell}{\\partial \\mu}\n= \\frac{1}{\\sigma^2}\\sum_{i=1}^{n}(x_i - \\mu) = 0\n\\quad\\Longrightarrow\\quad\n\\hat{\\mu}_{\\text{MLE}} = \\frac{1}{n}\\sum_{i=1}^{n} x_i\n||]</marimo-tex></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "90bf95da5fdf2b5abb2af759ab04a686",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (ModuleNotFoundError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "11399ffb13fef50c8906b6a6123657b4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"3-gradient-wrt-sigma-score-equation\">3.  Gradient w.r.t. <marimo-tex class=\"arithmatex\">||(\\sigma||)</marimo-tex> \u2014 Score Equation</h2>\n<marimo-tex class=\"arithmatex\">||[\n\\frac{\\partial \\ell}{\\partial \\sigma}\n= -\\frac{n}{\\sigma} + \\frac{1}{\\sigma^3}\\sum_{i=1}^{n}(x_i - \\mu)^2 = 0\n\\quad\\Longrightarrow\\quad\n\\hat{\\sigma}^2_{\\text{MLE}} = \\frac{1}{n}\\sum_{i=1}^{n}(x_i - \\hat{\\mu})^2\n||]</marimo-tex><span class=\"paragraph\">\u26a0\ufe0f The MLE of <marimo-tex class=\"arithmatex\">||(\\sigma^2||)</marimo-tex> is <strong>biased</strong>. The unbiased estimator uses <marimo-tex class=\"arithmatex\">||(n-1||)</marimo-tex>:\n<marimo-tex class=\"arithmatex\">||(\\hat{\\sigma}^2_{\\text{unbiased}} = \\frac{1}{n-1}\\sum(x_i - \\bar{x})^2||)</marimo-tex>.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "dc6ca779a53af780f80fadc85ea6a981",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (ModuleNotFoundError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "38ea3589e9bd7d49f03254a9a69e6d64",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"4-numerical-verification\">4.  Numerical Verification</h2>\n<span class=\"paragraph\">Generate samples from <marimo-tex class=\"arithmatex\">||(N(5, 2^2)||)</marimo-tex> and verify the MLE estimates\nrecover the true parameters.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "b7b0d86009ce5fb85729db428296eb21",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "No module named 'numpy'",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/zz/r9mmphcx6nz_7kqlnx6wzgyw0000gn/T/marimo_17351/__marimo__cell_Kclp_.py\"</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"kn\">import</span><span class=\"w\"> </span><span class=\"nn\">numpy</span><span class=\"w\"> </span><span class=\"k\">as</span><span class=\"w\"> </span><span class=\"nn\">np</span>\n<span class=\"gr\">ModuleNotFoundError</span>: <span class=\"n\">No module named 'numpy'</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "emfo",
+      "code_hash": "75fca0c8c50c32000c5a9ddde4fa1361",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"5-summary\">5.  Summary</h2>\n<table>\n<thead>\n<tr>\n<th>Parameter</th>\n<th>MLE Estimator</th>\n<th>Unbiased Estimator</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><marimo-tex class=\"arithmatex\">||(\\mu||)</marimo-tex></td>\n<td><marimo-tex class=\"arithmatex\">||(\\bar{x} = \\frac{1}{n}\\sum x_i||)</marimo-tex></td>\n<td><marimo-tex class=\"arithmatex\">||(\\bar{x}||)</marimo-tex> (same)</td>\n</tr>\n<tr>\n<td><marimo-tex class=\"arithmatex\">||(\\sigma^2||)</marimo-tex></td>\n<td><marimo-tex class=\"arithmatex\">||(\\frac{1}{n}\\sum (x_i - \\bar{x})^2||)</marimo-tex></td>\n<td><marimo-tex class=\"arithmatex\">||(\\frac{1}{n-1}\\sum (x_i - \\bar{x})^2||)</marimo-tex></td>\n</tr>\n</tbody>\n</table></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

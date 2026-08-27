@@ -5,8 +5,15 @@
 
 import marimo
 
-__generated_with = "0.24.0"
+__generated_with = "0.23.15"
 app = marimo.App(width="medium")
+
+
+@app.cell
+def _():
+    import marimo as mo
+
+    return (mo,)
 
 
 @app.cell(hide_code=True)
@@ -37,7 +44,7 @@ def _():
         sp.Eq(sp.Symbol("X"), X),
         sp.Eq(sp.Symbol("p(x)"), density(X)(x)),
     )
-    return Expectation, Normal, X, density, mu, sigma, sp, std, variance, x
+    return (sp,)
 
 
 @app.cell(hide_code=True)
@@ -63,8 +70,8 @@ def _(mo):
 
 
 @app.cell
-def _():
-    import sympy as sp
+def _(sp):
+
 
     n = sp.Symbol("n", integer=True, positive=True)
     i = sp.symbols("i", integer=True)
@@ -80,7 +87,7 @@ def _():
     )
 
     log_likelihood
-    return i, log_likelihood, mu_sym, n, sigma_sym, sp, x_i
+    return i, log_likelihood, mu_sym, n, sigma_sym, x_i
 
 
 @app.cell(hide_code=True)
@@ -114,9 +121,11 @@ def _(i, log_likelihood, mu_sym, n, sp, x_i):
 
     (
         sp.Eq(sp.Symbol("frac{partial ell}{partial mu}"), sp.Sum(dmu, (i, 1, n))),
-        sp.Eq(sp.Symbol("hat{mu}_{MLE}"), mu_mle[0]),
+        #sp.Eq(sp.Symbol("hat{mu}_{MLE}"), mu_mle),
     )
-    return dmu, mu_mle
+
+    mu_mle
+    return
 
 
 @app.cell(hide_code=True)
@@ -159,7 +168,7 @@ def _(i, log_likelihood, mu_sym, n, sigma_sym, sp, x_i):
         sp.Eq(sp.Symbol("frac{partial ell}{partial sigma}"), sp.Sum(dsigma, (i, 1, n))),
         sp.Eq(sp.Symbol("hat{sigma}^2_{MLE}"), sigma2_mle[1] ** 2),
     )
-    return dsigma, sigma2_mle
+    return
 
 
 @app.cell(hide_code=True)
@@ -202,7 +211,7 @@ def _():
     ax.legend(fontsize=11)
     plt.tight_layout()
     fig
-    return (fig,)
+    return
 
 
 @app.cell(hide_code=True)

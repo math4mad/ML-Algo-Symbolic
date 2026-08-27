@@ -1,0 +1,178 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.23.15",
+    "script_metadata_hash": null
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "00711ba3307729401bb97736933e0d7b",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "5c2e11cedb375b4c6f99c7625cc96210",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "a18a1ed2359bc33a383f108804ed33a3",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "name 'log_likelihood' is not defined",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">&quot;/var/folders/zz/r9mmphcx6nz_7kqlnx6wzgyw0000gn/T/marimo_87713/__marimo__cell_vblA_.py&quot;</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">datalatex_log_likelihood</span> <span class=\"o\">=</span> <span class=\"n\">sy</span><span class=\"o\">.</span><span class=\"n\">latex</span><span class=\"p\">(</span><span class=\"n\">log_likelihood</span><span class=\"p\">)</span>\n<span class=\"w\">                                        </span><span class=\"pm\">^^^^^^^^^^^^^^</span>\n<span class=\"gr\">NameError</span>: <span class=\"n\">name &#39;log_likelihood&#39; is not defined</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "5268e3ef57c3d146b93ef59129ee1be5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "cefeaf3a5d6b83a2e21c4432f5d2abdf",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "5a1699f6cd4989abe395efb1c4a150b1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert contents\"><marimo-tex class=\"arithmatex\">||[\n\\frac{\\sqrt{2} e^{- \\frac{\\left(50 - \\mu\\right)^{2}}{2 \\sigma^{2}}}}{2 \\sqrt{\\pi} \\sigma}\n||]</marimo-tex></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "ef5545a32a569bc50a229205ce7a279d",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "name 'data' is not defined",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">&quot;/var/folders/zz/r9mmphcx6nz_7kqlnx6wzgyw0000gn/T/marimo_87713/__marimo__cell_Xref_.py&quot;</span>, line <span class=\"m\">3</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">density</span><span class=\"p\">(</span><span class=\"n\">X</span><span class=\"p\">)(</span><span class=\"n\">data</span><span class=\"p\">[</span><span class=\"mi\">0</span><span class=\"p\">])</span>\n<span class=\"w\">               </span><span class=\"pm\">^^^^</span>\n<span class=\"gr\">NameError</span>: <span class=\"n\">name &#39;data&#39; is not defined</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "adbd7c75c7e598ee1b36124501249c9a",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (NameError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "c05c983d41a64c1245810f5a9d92f16b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "4e6c3f07a23788a697a7b25bcf768850",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (NameError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "095cab8d822ef9bb54962c77f33cbac9",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (NameError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "e1a274abf08e53c5348fa4a7580131db",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (NameError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "b20d8a5b6037db2d3dec9e5d07d64e47",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}
