@@ -91,7 +91,6 @@ def _(logL1, mu):
 @app.cell
 def _():
     ##  optimization 
-
     return
 
 

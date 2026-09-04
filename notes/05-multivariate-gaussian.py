@@ -5,7 +5,7 @@
 
 import marimo
 
-__generated_with = "0.23.15"
+__generated_with = "0.24.0"
 app = marimo.App(width="medium")
 
 
@@ -31,7 +31,7 @@ def _(mo):
 
 
 @app.cell
-def _():
+def _(display):
     import sympy as sp
     from sympy.stats import (
         MultivariateNormal,
@@ -59,7 +59,7 @@ def _():
 
     MV = MultivariateNormal("MV", mu, Sigma)
 
-    (
+    display(
         sp.Eq(sp.Symbol("mu"), mu),
         sp.Eq(sp.Symbol("Sigma"), Sigma),
     )
@@ -120,11 +120,11 @@ def _(mo):
 
 
 @app.cell
-def _(MV, marginal_distribution, sp):
+def _(MV, display, marginal_distribution, sp):
     marg_x = sp.simplify(marginal_distribution(MV, MV[0])(sp.Symbol("x")))
     marg_y = sp.simplify(marginal_distribution(MV, MV[1])(sp.Symbol("y")))
 
-    (marg_x, marg_y)
+    display(marg_x, marg_y)
     return
 
 
@@ -146,13 +146,13 @@ def _(mo):
 
 
 @app.cell
-def _(mu_x, mu_y, rho, sigma_x, sigma_y, sp):
+def _(display, mu_x, mu_y, rho, sigma_x, sigma_y, sp):
     c = sp.Symbol("c", real=True)
 
     cond_mean = mu_x + rho * sigma_x / sigma_y * (c - mu_y)
     cond_var = sigma_x ** 2 * (1 - rho ** 2)
 
-    (
+    display(
         sp.Eq(sp.Symbol("E[X | Y=c]"), sp.simplify(cond_mean)),
         sp.Eq(sp.Symbol("Var[X | Y=c]"), sp.simplify(cond_var)),
     )
@@ -179,7 +179,7 @@ def _(mo):
     return (y_slider,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(y_slider):
     import numpy as np
     import matplotlib.pyplot as plt
@@ -271,7 +271,9 @@ def _(mo):
 
 
 @app.cell
-def _(MultivariateNormal, density, sp):
+def _(MultivariateNormal, density):
+    import sympy as sp
+
     n_dim = sp.Symbol("n", integer=True, positive=True)
     mu_vec = sp.MatrixSymbol("mu", n_dim, 1)
     Sigma_mat = sp.MatrixSymbol("Sigma", n_dim, n_dim)
@@ -281,7 +283,7 @@ def _(MultivariateNormal, density, sp):
     pdf_nd = density(X_mv)(obs)
 
     pdf_nd
-    return
+    return (sp,)
 
 
 if __name__ == "__main__":
